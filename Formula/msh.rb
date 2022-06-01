@@ -10,6 +10,14 @@ class Msh < Formula
   # depends_on "cmake" => :build
 
   def install
+    binutils = Formula.factory "msh"
+
+    ENV['CC'] = '/usr/local/bin/gcc-4.9'
+    ENV['CXX'] = '/usr/local/bin/g++-4.9'
+    ENV['CPP'] = '/usr/local/bin/cpp-4.9'
+    ENV['LD'] = '/usr/local/bin/gcc-4.9'
+    ENV['PATH'] += ":#{binutils.prefix/"bin"}"
+
     mkdir "build" do
       system "cp other/mac_arm/all.o o/lib/all.o"
       system "make dep=false shell"
