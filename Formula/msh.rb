@@ -1,4 +1,4 @@
-require 'formula'
+# require 'formula'
 
 class Msh < Formula
   desc "The msh Interpreter as shell program."
