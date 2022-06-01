@@ -1,4 +1,4 @@
-class msh < Formula
+class Msh < Formula
   desc "The msh Interpreter as shell program."
   homepage "https://github.com/Max2github/mshgit"
   url "https://github.com/Max2github/mshgit/archive/refs/tags/shell.tar.gz"
