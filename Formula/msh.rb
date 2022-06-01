@@ -1,3 +1,5 @@
+require 'formula'
+
 class Msh < Formula
   desc "The msh Interpreter as shell program."
   homepage "https://github.com/Max2github/mshgit"
@@ -19,9 +21,9 @@ class Msh < Formula
     #ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
     mkdir "build" do
-      #system "cp other/mac_arm/all.o o/lib/all.o"
-      #system "make dep=false shell"
-      #bin.install "msh"
+      system "cp other/mac_arm/all.o o/lib/all.o"
+      system "make dep=false shell"
+      bin.install "msh"
     end
   end
 end
