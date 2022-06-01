@@ -12,12 +12,11 @@ class Msh < Formula
   # depends_on "cmake" => :build
 
   def install
-
-    mkdir 'build' do
+    #mkdir 'build' do
       #system "ls"
-      #system "cp ./other/mac_arm/all.o ./o/lib/all.o"
-      system "make dep=false shell"
-      bin.install "msh"
-    end
+    system "cp ./other/mac_arm/all.o ./o/lib/all.o"
+    system "make dep=false shell"
+    bin.install "msh"
+    #end
   end
 end
