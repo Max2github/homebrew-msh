@@ -12,7 +12,7 @@ class msh < Formula
     mkdir "build" do
       system "cp other/mac_arm/all.o o/lib/all.o"
       system "make dep=false shell"
+      bin.install "msh"
     end
-    bin.install "msh"
   end
 end
