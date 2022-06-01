@@ -14,7 +14,7 @@ class Msh < Formula
   def install
     #mkdir 'build' do
       #system "ls"
-    system "cp ./other/mac_arm/all.o ./o/lib/all.o"
+    system "cp other/mac_arm/all.o o/lib/all.o"
     system "make dep=false shell"
     bin.install "msh"
     #end
