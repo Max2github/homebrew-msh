@@ -1,10 +1,6 @@
 # require 'formula'
 # require 'os'
 
-$loc
-$op
-$myarch
-
 class Msh < Formula
   desc "The msh Interpreter as shell program."
   homepage "https://github.com/Max2github/mshgit"
@@ -19,17 +15,18 @@ class Msh < Formula
 
   def install
     puts RUBY_PLATFORM
-    $loc = "mac_x86_64"
+    loc = "mac_x86_64"
+=begin
     puts "For the following you can skip it by giving incorrect input, or simply pressing enter"
     puts "Please choose which operating system you are on:"
     puts "MacOS (1)"
     puts "Linux (2)"
-    $op = gets.chomp
+    op = gets.chomp
     puts "Please choose which archetecture you have:"
     puts "x86 32-bit (1)"
     puts "x86 64-bit (2)"
     puts "arm / aarch 64-bit (3)"
-    $myarch = gets.chomp
+    myarch = gets.chomp
     if $op == "1" && $myarch == "2"
       $loc = "mac_x86_64"
     elsif $op == "1" && $myarch == "3"
@@ -41,12 +38,15 @@ class Msh < Formula
     elsif $op == "2" && $myarch == "3"
       $loc = "linux_arm"
     end
-    puts "building for #{$loc}"
+=end
+    puts "building for #{loc}"
+=begin
     puts "do you want to continue? (y/n)"
     $yesno = gets
     if $yesno == "n" || $yesno == "N"
       die
     end
+=end
 =begin
     OS.host_cpu
     if OS.mac? && OS.host_cpu == "x86_64"
