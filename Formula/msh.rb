@@ -20,8 +20,9 @@ class Msh < Formula
     puts "Please choose which operating system you are on:"
     puts "MacOS (1)"
     puts "Linux (2)"
-    op = gets.chomp
+    op = $stdin.gets
 =begin
+    op = gets.chomp
     puts "Please choose which archetecture you have:"
     puts "x86 32-bit (1)"
     puts "x86 64-bit (2)"
