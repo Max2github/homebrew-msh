@@ -16,7 +16,7 @@ class Msh < Formula
     system "cp other/mac_x86_64/all.o o/lib/all.o"
     system "make dep=false shell"
     #system "make cleanshell"
-    #bin.install "msh"
+    bin.install "msh"
     #end
   end
 end
