@@ -5,9 +5,13 @@ class AARCH64LinuxGNUToolchain < Formula
     version "8.3.0"
     sha256 "9110fd08eb1fe1625fb7f495145a408db55efe6f9d6338bc4fd7a4c3057b86f6"
     revision 1
+    
+    depends_on: macos
   
     def install
-        
+        system "mkdir", "/usr/local/Cellar/aarch64-unknown-linux-gnu/"
+        system "cp -R ./ /usr/local/Cellar/aarch64-unknown-linux-gnu/"
+        #bin.install
     end
   
     test do
