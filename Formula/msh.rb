@@ -12,12 +12,8 @@ class Msh < Formula
   # depends_on "cmake" => :build
 
   def install
-    
-    ENV["CC"] = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc"
-    ENV["LD"] = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc"
-    
     #mkdir 'build' do
-    system "cp other/mac_arm/all.o o/lib/all.o"
+    system "cp other/mac_x86_64/all.o o/lib/all.o"
     system "make dep=false shell"
     #system "make cleanshell"
     #bin.install "msh"
