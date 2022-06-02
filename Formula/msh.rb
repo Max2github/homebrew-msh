@@ -11,6 +11,7 @@ class Msh < Formula
   #version "Shell program"
 
   # depends_on "cmake" => :build
+  depends_on : os
 
   def install
     puts RUBY_PLATFORM
