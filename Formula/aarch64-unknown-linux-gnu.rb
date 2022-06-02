@@ -6,7 +6,7 @@ class AARCH64LinuxGNUToolchain < Formula
     sha256 "9110fd08eb1fe1625fb7f495145a408db55efe6f9d6338bc4fd7a4c3057b86f6"
     revision 1
     
-    depends_on macos
+    #depends_on macos
   
     def install
         system "mkdir", "/usr/local/Cellar/aarch64-unknown-linux-gnu/"
