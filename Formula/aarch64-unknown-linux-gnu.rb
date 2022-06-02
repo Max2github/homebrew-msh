@@ -10,7 +10,7 @@ class Aarch64UnknownLinuxGnu < Formula
   
     def install
         #system "mkdir /usr/local/Cellar/aarch64-unknown-linux-gnu"
-        system "cp -R ./ /usr/local/Cellar/aarch64-unknown-linux-gnu"
+        #system "cp -R ./ /usr/local/Cellar/aarch64-unknown-linux-gnu"
         #bin.install
     end
   
