@@ -1,4 +1,4 @@
-class AARCH64LinuxGNUToolchain < Formula
+class Aarch64UnknownLinuxGnu < Formula
     desc "Toolchain for MacOS targetting aarch64-unknown-linux-gnu (includes gcc, gbb, linux headers, glic and binutils)"
     homepage "https://thinkski.github.io/osx-arm-linux-toolchains/"
     url "https://github.com/thinkski/osx-arm-linux-toolchains/releases/download/8.3.0/aarch64-unknown-linux-gnu.tar.xz"
