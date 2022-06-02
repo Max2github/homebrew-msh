@@ -15,7 +15,7 @@ class Msh < Formula
 
   def install
     puts RUBY_PLATFORM
-    puts OS.host_cpu
+    OS.host_cpu
     if OS.mac? && OS.host_cpu == "x86_64"
       system "cp other/mac_x86_64/all.o o/lib/all.o"
     elsif OS.mac? && OS.host_cpu == "arm64"
