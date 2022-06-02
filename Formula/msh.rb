@@ -15,7 +15,7 @@ class Msh < Formula
 
   def install
     puts RUBY_PLATFORM
-    loc = "mac_x86_64"
+    $loc = "mac_x86_64"
     puts "For the following you can skip it by giving incorrect input, or simply pressing enter"
     puts "Please choose which operating system you are on:"
     puts "MacOS (1)"
@@ -27,15 +27,15 @@ class Msh < Formula
     puts "arm / aarch 64-bit (3)"
     $myarch = gets
     if $op == "1" && $myarch == "2"
-      loc = "mac_x86_64"
+      $loc = "mac_x86_64"
     elsif $op == "1" && $myarch == "3"
-      loc = "mac_arm"
+      $loc = "mac_arm"
     elsif $op == "2" && $myarch == "1"
-      loc = "linux_x86_32"
+      $loc = "linux_x86_32"
     elsif $op == "2" && $myarch == "2"
-      loc = "linux_x86_64"
+      $loc = "linux_x86_64"
     elsif $op == "2" && $myarch == "3"
-      loc = "linux_arm"
+      $loc = "linux_arm"
     end
     puts "building for #{$loc}"
     puts "do you want to continue? (y/n)"
