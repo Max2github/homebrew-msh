@@ -9,7 +9,6 @@ class Aarch64UnknownLinuxGnu < Formula
     #depends_on macos
   
     def install
-        system "cd", "bin"
         bin.install "aarch64-unknown-linux-gnu-gcc"
         #system "mkdir /usr/local/Cellar/aarch64-unknown-linux-gnu"
         #system "cp -R ./ /usr/local/Cellar/aarch64-unknown-linux-gnu"
