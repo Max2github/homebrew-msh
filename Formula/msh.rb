@@ -16,12 +16,12 @@ class Msh < Formula
   def install
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
-=begin
     puts "For the following you can skip it by giving incorrect input, or simply pressing enter"
     puts "Please choose which operating system you are on:"
     puts "MacOS (1)"
     puts "Linux (2)"
     op = gets.chomp
+=begin
     puts "Please choose which archetecture you have:"
     puts "x86 32-bit (1)"
     puts "x86 64-bit (2)"
