@@ -20,27 +20,27 @@ class Msh < Formula
     puts "Please choose which operating system you are on:"
     puts "MacOS (1)"
     puts "Linux (2)"
-    op = gets
+    $op = gets
     puts "Please choose which archetecture you have:"
     puts "x86 32-bit (1)"
     puts "x86 64-bit (2)"
     puts "arm / aarch 64-bit (3)"
-    myarch = gets
-    if op == "1" && myarch == "2"
+    $myarch = gets
+    if $op == "1" && $myarch == "2"
       loc = "mac_x86_64"
-    elsif op == "1" && myarch == "3"
+    elsif $op == "1" && $myarch == "3"
       loc = "mac_arm"
-    elsif op == "2" && myarch == "1"
+    elsif $op == "2" && $myarch == "1"
       loc = "linux_x86_32"
-    elsif op == "2" && myarch == "2"
+    elsif $op == "2" && $myarch == "2"
       loc = "linux_x86_64"
-    elsif op == "2" && myarch == "3"
+    elsif $op == "2" && $myarch == "3"
       loc = "linux_arm"
     end
-    puts "building for #{loc}"
+    puts "building for #{$loc}"
     puts "do you want to continue? (y/n)"
-    yesno = gets
-    if yesno == "n" || yesno == "N"
+    $yesno = gets
+    if $yesno == "n" || $yesno == "N"
       die
     end
 =begin
