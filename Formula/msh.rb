@@ -1,5 +1,5 @@
 # require 'formula'
-require 'os'
+# require 'os'
 
 class Msh < Formula
   desc "The msh Interpreter as shell program."
@@ -15,6 +15,7 @@ class Msh < Formula
 
   def install
     puts RUBY_PLATFORM
+=begin
     OS.host_cpu
     if OS.mac? && OS.host_cpu == "x86_64"
       system "cp other/mac_x86_64/all.o o/lib/all.o"
@@ -31,6 +32,8 @@ class Msh < Formula
     else
       die
     end
+=end
+    system "cp other/mac_x86_64/all.o o/lib/all.o"
     system "make dep=false shell"
     bin.install "msh"
     #end
