@@ -1,6 +1,10 @@
 # require 'formula'
 # require 'os'
 
+$loc
+$op
+$myarch
+
 class Msh < Formula
   desc "The msh Interpreter as shell program."
   homepage "https://github.com/Max2github/mshgit"
@@ -20,12 +24,12 @@ class Msh < Formula
     puts "Please choose which operating system you are on:"
     puts "MacOS (1)"
     puts "Linux (2)"
-    $op = gets
+    $op = gets.chomp
     puts "Please choose which archetecture you have:"
     puts "x86 32-bit (1)"
     puts "x86 64-bit (2)"
     puts "arm / aarch 64-bit (3)"
-    $myarch = gets
+    $myarch = gets.chomp
     if $op == "1" && $myarch == "2"
       $loc = "mac_x86_64"
     elsif $op == "1" && $myarch == "3"
