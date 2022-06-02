@@ -12,10 +12,9 @@ class Msh < Formula
   # depends_on "cmake" => :build
 
   def install
-    #mkdir 'build' do
+    puts RUBY_PLATFORM
     system "cp other/mac_x86_64/all.o o/lib/all.o"
     system "make dep=false shell"
-    #system "make cleanshell"
     bin.install "msh"
     #end
   end
