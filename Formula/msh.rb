@@ -63,23 +63,14 @@ class Msh < Formula
     #system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
     
     # get lib
-    #system "mkdir lib && cd lib"
-    mkdir "lib"
-    #changeDir("lib")
-    system "cd lib"
-    #Dir.chdir(Dir.pwd+"/"+"lib")
-    lsPrint()
     system "git clone https://github.com/Max2github/lib.git"
-    #system "cd .."
-    #changeDir("..")
-    #Dir.chdir(Dir.pwd+"/"+"../")
     
     # get packages
-    #changeDir("msh")
-    Dir.chdir(Dir.pwd+"/"+"msh")
+    changeDir("msh")
+    #Dir.chdir(Dir.pwd+"/"+"msh")
     system "git clone https://github.com/Max2github/msh-packages.git"
     
-    changeDir("mshgit")
+    changeDir("msh")
     #Dir.chdir(Dir.pwd+"/"+"mshgit")
     
     dirPrint()
