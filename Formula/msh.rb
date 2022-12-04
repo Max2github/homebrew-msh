@@ -24,11 +24,13 @@ class Msh < Formula
     
     # get lib
     system "mkdir lib && cd lib"
+    puts Dir.getwd
     system "git clone https://github.com/Max2github/lib.git"
     system "cd .."
     
     # get packages
-    system "cd", "msh"
+    Dir.chdir(Dir.pwd+"msh")
+    puts Dir.getwd
     system "git clone https://github.com/Max2github/msh-packages.git"
     
     lsStr = Dir.glob("*")
