@@ -29,7 +29,7 @@ class Msh < Formula
     mkdir "msh"
     #system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
     system "shopt -s extglob"
-    system "mv !(msh) msh"
+    system "mv !(msh) msh/mshgit"
     
     # get lib
     system "mkdir lib && cd lib"
