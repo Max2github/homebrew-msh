@@ -18,6 +18,7 @@ class Msh < Formula
     mydir = Dir.getwd
     puts mydir
     system "cd ../../"
+    puts Dir.getwd
     
     # get lib
     system "mkdir lib && cd lib"
