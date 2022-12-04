@@ -21,7 +21,7 @@ class Msh < Formula
     
     # get lib
     system "mkdir lib && cd lib"
-    system "git clone https://github.com/Max2github/msh-packages.git"
+    system "git clone https://github.com/Max2github/lib.git"
     system "cd .."
     
     # get packages
