@@ -34,7 +34,7 @@ class Msh < Formula
     changeDir("..")
     lsPrint()
     #system "setopt extendedglob"
-    system "mv !msh msh/mshgit"
+    system "mv #{Dir.glob("*")} msh/mshgit"
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
     #system "/usr/local/opt/coreutils/libexec/gnubin/mv !(msh) msh/mshgit"
