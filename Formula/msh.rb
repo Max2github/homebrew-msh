@@ -25,15 +25,15 @@ class Msh < Formula
   def install   
     # move mshgit to msh/mshgit
     mkdir "msh"
-    system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
-    system "find . ! -regex '.*/msh' ! -regex '.' -exec rm -r '{}' \\;"
+    #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
+    #system "find . ! -regex '.*/msh' ! -regex '.' -exec rm -r '{}' \\;"
     changeDir("msh")
     mkdir "mshgit"
-    system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
-    system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
+    #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
+    #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
     changeDir("..")
-    #system "shopt -s extglob"
-    #system "mv !(msh) msh/mshgit"
+    system "shopt -s extglob"
+    system "mv !(msh) msh/mshgit"
     #system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
     
     # get lib
