@@ -29,7 +29,7 @@ class Msh < Formula
     system "cd .."
     
     # get packages
-    Dir.chdir(Dir.pwd+"msh")
+    Dir.chdir(Dir.pwd+"/msh")
     puts Dir.getwd
     system "git clone https://github.com/Max2github/msh-packages.git"
     
