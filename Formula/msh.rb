@@ -32,7 +32,7 @@ class Msh < Formula
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
     changeDir("..")
-    system "shopt -s extglob"
+    #system "shopt -s extglob"
     system "mv !(msh) msh/mshgit"
     #system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
     
