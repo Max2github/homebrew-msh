@@ -23,16 +23,14 @@ class Msh < Formula
   end
 
   def install
-    puts Dir.getwd
+    lsPrint()
     
     # move mshgit to msh
     mkdir "msh"
-    #system "cp", "-R", "!(msh)", "msh/mshgit"
     system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
     
     # get lib
     system "mkdir lib && cd lib"
-    puts Dir.getwd
     system "git clone https://github.com/Max2github/lib.git"
     system "cd .."
     
@@ -41,9 +39,7 @@ class Msh < Formula
     puts Dir.getwd
     system "git clone https://github.com/Max2github/msh-packages.git"
     
-    lsPrint()
-    
-    system "cd", "mshgit"
+    changeDir("mshgit")
     
     lsPrint()
     
