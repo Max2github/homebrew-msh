@@ -19,6 +19,10 @@ class Msh < Formula
     puts Dir.glob("*")
   end
   
+  def dirPrint
+    puts Dir.pwd
+  end
+  
   def changeDir(dir)
     Dir.chdir(Dir.pwd+"/"+dir)
   end
@@ -33,7 +37,6 @@ class Msh < Formula
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
     changeDir("..")
-    lsPrint()
     
     FileUtils.mv("develop", "msh/mshgit")
     FileUtils.mv("Makefile", "msh/mshgit")
