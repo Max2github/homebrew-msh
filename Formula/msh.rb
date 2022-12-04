@@ -24,22 +24,22 @@ class Msh < Formula
   end
   
   def changeDir(dir)
-    #Dir.chdir(Dir.pwd+"/"+dir)
+    Dir.chdir(Dir.pwd + "/" + dir)
     #Dir.pwd = Dir.pwd+"/"+dir
-    system "cd #{dir}"
+    #system "cd #{dir}"
   end
 
   def install   
     # move mshgit to msh/mshgit
-    mkdir "msh"
+    mkdir "msh/mshgit"
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec rm -r '{}' \\;"
-    changeDir("msh")
+    #changeDir("msh")
     #Dir.chdir(Dir.pwd+"/"+"msh")
-    mkdir "mshgit"
+    #mkdir "mshgit"
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
-    changeDir("..")
+    #changeDir("..")
     #Dir.chdir(Dir.pwd+"/"+"..")
     
     FileUtils.mv("develop", "msh/mshgit")
