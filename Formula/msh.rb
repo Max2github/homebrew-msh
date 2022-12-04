@@ -31,6 +31,7 @@ class Msh < Formula
 
   def install   
     # move mshgit to msh/mshgit
+    root_dir = Dir.pwd
     mkdir "msh/mshgit"
     lsPrint()
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
@@ -67,10 +68,10 @@ class Msh < Formula
     
     # get packages
     changeDir("msh")
+    
+    msh_dir = Dir.pwd
     #Dir.chdir(Dir.pwd+"/"+"msh")
     system "git clone https://github.com/Max2github/msh-packages.git"
-    
-    lsPrint()
     
     changeDir("mshgit")
     #Dir.chdir(Dir.pwd+"/"+"mshgit")
@@ -139,7 +140,8 @@ class Msh < Formula
     
     # launch devel
     system "make dep=false host=#{host} target=#{target} develop"
-    puts Dir.glob("..")
+    
+    
     system "make command action=package data=../msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-extended"
