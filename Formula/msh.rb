@@ -15,10 +15,11 @@ class Msh < Formula
   #depends_on "gem" => :build
 
   def install
-    mydir = Dir.getwd
-    puts mydir
-    system "cd ../.."
     puts Dir.getwd
+    
+    # move mshgit to msh
+    system "mkdir msh"
+    mv "." "msh/"
     
     # get lib
     system "mkdir lib && cd lib"
@@ -26,9 +27,8 @@ class Msh < Formula
     system "cd .."
     
     # get packages
+    system "cd msh"
     system "git clone https://github.com/Max2github/msh-packages.git"
-    
-    system "cd #{mydir}"
     
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
