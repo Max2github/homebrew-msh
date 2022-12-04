@@ -13,6 +13,14 @@ class Msh < Formula
   #depends_on "make" => :build
   depends_on "git"
   #depends_on "gem" => :build
+  
+  def lsPrint
+    puts Dir.glob("*")
+  end
+  
+  def changeDir(dir)
+    Dir.chdir(Dir.pwd+"/"+dir)
+  end
 
   def install
     puts Dir.getwd
@@ -29,14 +37,15 @@ class Msh < Formula
     system "cd .."
     
     # get packages
-    Dir.chdir(Dir.pwd+"/msh")
+    changeDir("msh")
     puts Dir.getwd
     system "git clone https://github.com/Max2github/msh-packages.git"
     
-    lsStr = Dir.glob("*")
-    puts lsStr
+    lsPrint()
     
     system "cd", "mshgit"
+    
+    lsPrint()
     
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
