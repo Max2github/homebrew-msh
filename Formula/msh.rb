@@ -4,13 +4,13 @@
 class Msh < Formula
   desc "The msh Interpreter as shell program."
   homepage "https://github.com/Max2github/mshgit"
-  url "https://github.com/Max2github/mshgit/archive/refs/tags/shell.tar.gz"
-  sha256 "e6a13af29f427a61e90a1be75f89d4e6f63dc0c91bf610e0148474440030f83e"
+  url "https://github.com/Max2github/mshgit/archive/refs/tags/v3.tar.gz"
+  sha256 "33efbf7777d782258755db6f46cf9a6506782bdb9ecea72786de4ba028a6f827"
   license "MIT"
-  version "1.0.1"
-  #version "Shell program"
+  version "3.0.0"
+  #version "Shell program version 3"
 
-  # depends_on "cmake" => :build
+  #depends_on "make" => :build
   #depends_on "gem" => :build
 
   def install
@@ -35,8 +35,8 @@ class Msh < Formula
       #loc = "mac_arm"
       #host = "macos_arm"
     elsif op == "2" && myarch == "1"
-      loc = "linux_x86_32"
-      host = "linux_x86_32"
+      loc = "linux_x86_i386"
+      host = "linux_x86_i386"
     elsif op == "2" && myarch == "2"
       loc = "linux_x86_64"
       host = "linux_x86_64"
