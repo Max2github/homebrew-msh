@@ -21,7 +21,6 @@ class Msh < Formula
   
   def dirPrint
     puts Dir.pwd
-    puts Dir.cwd
   end
   
   def changeDir(dir)
