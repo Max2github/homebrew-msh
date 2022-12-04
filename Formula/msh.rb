@@ -1,5 +1,6 @@
 # require 'formula'
 # require 'os'
+require 'fileutils'
 
 class Msh < Formula
   desc "The msh Interpreter as shell program."
@@ -34,7 +35,8 @@ class Msh < Formula
     changeDir("..")
     lsPrint()
     #system "setopt extendedglob"
-    system "mv #{Dir.glob("*")} msh/mshgit"
+    #system "mv * msh/mshgit"
+    FileUtils.mv Dir.glob("*"), "msh/mshgit"
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
     #system "/usr/local/opt/coreutils/libexec/gnubin/mv !(msh) msh/mshgit"
