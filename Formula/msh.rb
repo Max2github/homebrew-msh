@@ -137,7 +137,8 @@ class Msh < Formula
     
     # launch devel
     system "make dep=false host=#{host} target=#{target} develop"
-    dirPrint()
+    lsStr = system "pwd"
+    puts pwd
     system "./devel package ../msh-packages/std-essential"
     system "./devel package ../msh-packages/std-extended"
     system "./devel package ../msh-packages/IPsocket"
