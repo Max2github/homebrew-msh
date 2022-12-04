@@ -16,20 +16,19 @@ class Msh < Formula
 
   def install
     mydir = Dir.getwd
-    cd ".."
+    puts mydir
+    system "cd .."
     
     # get lib
-    mkdir "lib"
-    cd "lib"
+    system "mkdir lib && cd lib"
     system "git clone https://github.com/Max2github/msh-packages.git"
-    cd ".."
+    system "cd .."
     
     # get packages
-    mkdir "msh"
-    cd "msh"
+    system "mkdir msh && cd msh"
     system "git clone https://github.com/Max2github/msh-packages.git"
     
-    cd "#{mydir}"
+    system "cd #{mydir}"
     
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
