@@ -28,7 +28,7 @@ class Msh < Formula
     system "cd .."
     
     # get packages
-    system "cd msh"
+    system "cd", "msh"
     system "git clone https://github.com/Max2github/msh-packages.git"
     
     lsStr = Dir.glob("*")
