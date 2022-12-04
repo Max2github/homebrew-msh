@@ -19,8 +19,7 @@ class Msh < Formula
     
     # move mshgit to msh
     mkdir "msh"
-    system "mv", "*", "msh"
-    #system "cp", "-R", "#{Dir.getwd}/", "msh/mshgit"
+    system "cp", "-R", "!(msh)", "msh/mshgit"
     
     # get lib
     system "mkdir lib && cd lib"
