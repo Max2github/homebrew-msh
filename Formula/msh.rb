@@ -88,13 +88,16 @@ class Msh < Formula
       die
     end
 =end
+    # copy correct all.o
+    system "cp other/#{loc}/all.o o/lib/all.o"
+    
     # launch devel
     system "make dep=false host=#{host} target=#{target} develop"
     system "./devel package ../msh-packages/std-essential"
     system "./devel package ../msh-packages/std-extended"
     system "./devel package ../msh-packages/IPsocket"
     
-    system "cp other/#{loc}/all.o o/lib/all.o"
+    # build msh
     system "make dep=false host=#{host} target=#{target} shell"
     if target == host
       bin.install "msh"
