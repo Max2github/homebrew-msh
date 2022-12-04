@@ -24,7 +24,8 @@ class Msh < Formula
   end
   
   def changeDir(dir)
-    Dir.chdir(Dir.pwd+"/"+dir)
+    Dir.chdir(Dir.pwd+"/"+dir) do
+    end
   end
 
   def install   
