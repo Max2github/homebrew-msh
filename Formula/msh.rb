@@ -142,8 +142,9 @@ class Msh < Formula
     system "make dep=false host=#{host} target=#{target} develop"
     
     Dir.chdir(msh_dir)
-    system "make command action=package data=msh-packages/std-essential"
-    #system "./devel package ../msh-packages/std-essential"
+    #system "make command action=package data=msh-packages/std-essential"
+    system "./mshgit/devel package msh-packages/std-essential"
+    #system "./devel package msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-extended"
     #system "./devel package ../msh-packages/IPsocket"
     
