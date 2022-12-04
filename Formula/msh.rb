@@ -17,7 +17,7 @@ class Msh < Formula
   def install
     mydir = Dir.getwd
     puts mydir
-    system "sudo cd ../.."
+    system "cd ../.."
     puts Dir.getwd
     
     # get lib
