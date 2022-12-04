@@ -30,10 +30,10 @@ class Msh < Formula
     changeDir("msh")
     mkdir "mshgit"
     changeDir("..")
-    #system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
+    system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
-    system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
+    #system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
     
     # get lib
     #system "mkdir lib && cd lib"
