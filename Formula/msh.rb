@@ -20,18 +20,17 @@ class Msh < Formula
   
   def changeDir(dir)
     Dir.chdir(Dir.pwd+"/"+dir)
-    system "cd", dir
+    system "cd #{dir}"
   end
 
-  def install
-    lsPrint()
-    
-    # move mshgit to msh
+  def install   
+    # move mshgit to msh/mshgit
     mkdir "msh"
+    system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     changeDir("msh")
     mkdir "mshgit"
+    system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
     changeDir("..")
-    system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
     #system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
