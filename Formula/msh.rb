@@ -21,7 +21,7 @@ class Msh < Formula
     mkdir "msh"
     system "ls"
     #system "cp", "-R", "!(msh)", "msh/mshgit"
-    system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \;"
+    system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     
     # get lib
     system "mkdir lib && cd lib"
