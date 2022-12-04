@@ -34,9 +34,21 @@ class Msh < Formula
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
     changeDir("..")
     lsPrint()
+    
+    FileUtils.mv("develop", "msh/mshgit")
+    FileUtils.mv("Makefile", "msh/mshgit")
+    FileUtils.mv("include", "msh/mshgit")
+    FileUtils.mv("other", "msh/mshgit")
+    FileUtils.mv("dependencies", "msh/mshgit")
+    FileUtils.mv("o", "msh/mshgit")
+    FileUtils.mv("README.md", "msh/mshgit")
+    FileUtils.mv("shell.c", "msh/mshgit")
+    FileUtils.mv("project", "msh/mshgit")
+    FileUtils.mv("build", "msh/mshgit")
+    FileUtils.mv("src", "msh/mshgit")
     #system "setopt extendedglob"
     #system "mv * msh/mshgit"
-    FileUtils.mv(Dir.glob("*"), "msh/mshgit")
+    #FileUtils.mv(Dir.glob("*"), "msh/mshgit")
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
     #system "/usr/local/opt/coreutils/libexec/gnubin/mv !(msh) msh/mshgit"
