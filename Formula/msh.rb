@@ -33,7 +33,7 @@ class Msh < Formula
     #system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
-    system "ls | grep -v msh/mshgit | xargs mv -t msh/mshgit"
+    system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
     
     # get lib
     #system "mkdir lib && cd lib"
@@ -45,7 +45,6 @@ class Msh < Formula
     
     # get packages
     changeDir("msh")
-    puts Dir.getwd
     system "git clone https://github.com/Max2github/msh-packages.git"
     
     changeDir("mshgit")
