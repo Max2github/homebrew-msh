@@ -27,7 +27,9 @@ class Msh < Formula
     
     # move mshgit to msh
     mkdir "msh"
-    system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
+    #system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
+    system "shopt -s extglob"
+    system "mv !(msh) msh"
     
     # get lib
     system "mkdir lib && cd lib"
