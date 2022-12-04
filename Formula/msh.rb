@@ -33,7 +33,7 @@ class Msh < Formula
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
     changeDir("..")
     lsPrint()
-    system "setopt extendedglob"
+    #system "setopt extendedglob"
     system "mv ^msh msh/mshgit"
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
