@@ -15,6 +15,7 @@ class Msh < Formula
   #depends_on "gem" => :build
 
   def install
+    mydir = Dir.getwd
     cd ".."
     
     # get lib
@@ -28,7 +29,7 @@ class Msh < Formula
     cd "msh"
     system "git clone https://github.com/Max2github/msh-packages.git"
     
-    cd "mshgit"
+    cd "#{mydir}"
     
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
