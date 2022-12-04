@@ -6,7 +6,7 @@ class Msh < Formula
   desc "The msh Interpreter as shell program."
   homepage "https://github.com/Max2github/mshgit"
   url "https://github.com/Max2github/mshgit/archive/refs/tags/v3.tar.gz"
-  sha256 "c7d58dab57dcf362d907c0c95058295f1038e6269ae4723c205bc29cf661f208"
+  sha256 "72ecee82dd0e0a1ed2e82127a8747ecc7e274c54340eb47b291d4beb27cbd915"
   license "MIT"
   version "3.0.0"
   #version "Shell program version 3"
