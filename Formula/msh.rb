@@ -70,6 +70,8 @@ class Msh < Formula
     #Dir.chdir(Dir.pwd+"/"+"msh")
     system "git clone https://github.com/Max2github/msh-packages.git"
     
+    lsPrint()
+    
     changeDir("mshgit")
     #Dir.chdir(Dir.pwd+"/"+"mshgit")
     
