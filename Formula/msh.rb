@@ -62,6 +62,7 @@ class Msh < Formula
     #system "mkdir lib && cd lib"
     mkdir "lib"
     changeDir("lib")
+    lsPrint()
     system "git clone https://github.com/Max2github/lib.git"
     #system "cd .."
     changeDir("..")
