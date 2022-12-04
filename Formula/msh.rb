@@ -32,7 +32,8 @@ class Msh < Formula
   def install   
     # move mshgit to msh/mshgit
     root_dir = Dir.pwd
-    mkdir "msh/mshgit"
+    mshgit_dir = "msh"
+    mkdir mshgit_dir
     lsPrint()
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec rm -r '{}' \\;"
@@ -44,17 +45,17 @@ class Msh < Formula
     #changeDir("..")
     #Dir.chdir(Dir.pwd+"/"+"..")
     
-    FileUtils.mv("develop", "msh/mshgit")
-    FileUtils.mv("Makefile", "msh/mshgit")
-    FileUtils.mv("include", "msh/mshgit")
-    FileUtils.mv("other", "msh/mshgit")
-    FileUtils.mv("dependencies", "msh/mshgit")
-    FileUtils.mv("o", "msh/mshgit")
-    FileUtils.mv("README.md", "msh/mshgit")
-    FileUtils.mv("shell.c", "msh/mshgit")
-    FileUtils.mv("project", "msh/mshgit")
-    FileUtils.mv("build", "msh/mshgit")
-    FileUtils.mv("src", "msh/mshgit")
+    FileUtils.mv("develop", mshgit_dir)
+    FileUtils.mv("Makefile", mshgit_dir)
+    FileUtils.mv("include", mshgit_dir)
+    FileUtils.mv("other", mshgit_dir)
+    FileUtils.mv("dependencies", mshgit_dir)
+    FileUtils.mv("o", mshgit_dir)
+    FileUtils.mv("README.md", mshgit_dir)
+    FileUtils.mv("shell.c", mshgit_dir)
+    FileUtils.mv("project", mshgit_dir)
+    FileUtils.mv("build", mshgit_dir)
+    FileUtils.mv("src", mshgit_dir)
     #system "setopt extendedglob"
     #system "mv * msh/mshgit"
     #FileUtils.mv(Dir.glob("*"), "msh/mshgit")
@@ -73,7 +74,7 @@ class Msh < Formula
     #Dir.chdir(Dir.pwd+"/"+"msh")
     system "git clone https://github.com/Max2github/msh-packages.git"
     
-    changeDir("mshgit")
+    #changeDir("mshgit")
     #Dir.chdir(Dir.pwd+"/"+"mshgit")
     
     dirPrint()
@@ -141,9 +142,9 @@ class Msh < Formula
     # launch devel
     system "make dep=false host=#{host} target=#{target} develop"
     
-    Dir.chdir(msh_dir)
-    #system "make command action=package data=msh-packages/std-essential"
-    system "./mshgit/devel package msh-packages/std-essential"
+    #Dir.chdir(msh_dir)
+    #system "./mshgit/devel package msh-packages/std-essential"
+    system "make command action=package data=msh-packages/std-essential"
     #system "./devel package msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-extended"
     #system "./devel package ../msh-packages/IPsocket"
