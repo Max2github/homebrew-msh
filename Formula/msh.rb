@@ -19,7 +19,7 @@ class Msh < Formula
     
     # move mshgit to msh
     #mv ".[^.]*", "msh"
-    system "cp", "-R", "#{Dir.getwd}/", "msh/"
+    system "cp", "-R", "#{Dir.getwd}/", "msh/mshgit"
     
     # get lib
     system "mkdir lib && cd lib"
@@ -29,6 +29,8 @@ class Msh < Formula
     # get packages
     system "cd msh"
     system "git clone https://github.com/Max2github/msh-packages.git"
+    
+    system "cd", "mshgit"
     
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
