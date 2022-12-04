@@ -71,7 +71,7 @@ class Msh < Formula
     
     changeDir("mshgit")
     
-    lsPrint()
+    dirPrint()
     
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
