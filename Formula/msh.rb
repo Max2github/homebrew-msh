@@ -11,9 +11,25 @@ class Msh < Formula
   #version "Shell program version 3"
 
   #depends_on "make" => :build
+  depends_on "git"
   #depends_on "gem" => :build
 
   def install
+    cd ".."
+    
+    # get lib
+    mkdir "lib"
+    cd "lib"
+    system "git clone https://github.com/Max2github/msh-packages.git"
+    cd ".."
+    
+    # get packages
+    mkdir "msh"
+    cd "msh"
+    system "git clone https://github.com/Max2github/msh-packages.git"
+    
+    cd "mshgit"
+    
     puts RUBY_PLATFORM
     loc = "mac_x86_64"
     host = "macos_x86_64"
@@ -26,14 +42,14 @@ class Msh < Formula
     puts "Please choose which archetecture you have:"
     puts "x86 32-bit (1)"
     puts "x86 64-bit (2)"
-    puts "arm / aarch 64-bit (3)"
+    #puts "arm / aarch 64-bit (3)"
     myarch = $stdin.gets.chomp
     if op == "1" && myarch == "2"
       loc = "mac_x86_64"
       host = "macos_x86_64"
-    elsif op == "1" && myarch == "3"
-      loc = "mac_arm64"
-      host = "macos_arm64"
+    #elsif op == "1" && myarch == "3"
+      #loc = "mac_arm64"
+      #host = "macos_arm64"
     elsif op == "2" && myarch == "1"
       loc = "linux_x86_i386"
       host = "linux_x86_i386"
@@ -44,34 +60,7 @@ class Msh < Formula
       #loc = "linux_arm"
       #name = "linux_arm"
     end
-    
-=begin
-    puts "Please choose which operating system you want to build for:"
-    puts "MacOS (1)"
-    puts "Linux (2)"
-    op =  $stdin.gets.chomp
-    puts "Please choose which archetecture want to build for:"
-    puts "x86 32-bit (1)"
-    puts "x86 64-bit (2)"
-    #puts "arm / aarch 64-bit (3)"
-    myarch = $stdin.gets.chomp
-    if op == "1" && myarch == "2"
-      loc = "mac_x86_64"
-      target = "macos_x86_64"
-    #elsif op == "1" && myarch == "3"
-      #loc = "mac_arm"
-      #target = "macos_arm"
-    elsif op == "2" && myarch == "1"
-      loc = "linux_x86_32"
-      target = "linux_x86_32"
-    elsif op == "2" && myarch == "2"
-      loc = "linux_x86_64"
-      target = "linux_x86_64"
-    #elsif op == "2" && myarch == "3"
-      #loc = "linux_arm"
-      #target = "linux_arm"
-    end
-=end
+  
     puts "building for #{loc}"
 =begin
     puts "do you want to continue? (y/n)"
@@ -98,6 +87,12 @@ class Msh < Formula
       die
     end
 =end
+    # launch devel
+    system "make dep=false host=#{host} target=#{target} develop"
+    system "./devel package ../msh-packages/std-essential"
+    system "./devel package ../msh-packages/std-extended"
+    system "./devel package ../msh-packages/IPsocket"
+    
     system "cp other/#{loc}/all.o o/lib/all.o"
     system "make dep=false host=#{host} target=#{target} shell"
     if target == host
