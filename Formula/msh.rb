@@ -19,7 +19,6 @@ class Msh < Formula
     
     # move mshgit to msh
     mkdir "msh"
-    system "ls"
     #system "cp", "-R", "!(msh)", "msh/mshgit"
     system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     
@@ -31,6 +30,9 @@ class Msh < Formula
     # get packages
     system "cd msh"
     system "git clone https://github.com/Max2github/msh-packages.git"
+    
+    lsStr = system "ls"
+    puts lsStr
     
     system "cd", "mshgit"
     
