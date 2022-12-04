@@ -28,13 +28,16 @@ class Msh < Formula
     # move mshgit to msh
     mkdir "msh"
     #system "find . ! -regex '.*/msh/mshgit' ! -regex '.' -exec cp -r '{}' msh/mshgit \\;"
-    system "shopt -s extglob"
+    #system "shopt -s extglob"
     system "mv !(msh) msh/mshgit"
     
     # get lib
-    system "mkdir lib && cd lib"
+    #system "mkdir lib && cd lib"
+    mkdir "lib"
+    changeDir("lib")
     system "git clone https://github.com/Max2github/lib.git"
-    system "cd .."
+    #system "cd .."
+    changeDir("..")
     
     # get packages
     changeDir("msh")
