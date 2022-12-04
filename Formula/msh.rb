@@ -32,7 +32,7 @@ class Msh < Formula
   def install   
     # move mshgit to msh/mshgit
     root_dir = Dir.pwd
-    mshgit_dir = "msh"
+    mshgit_dir = "msh/mshgit"
     mkdir mshgit_dir
     lsPrint()
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
@@ -68,7 +68,8 @@ class Msh < Formula
     system "git clone https://github.com/Max2github/lib.git"
     
     # get packages
-    changeDir("msh")
+    #changeDir("msh")
+    changeDir(mshgit_dir)
     
     msh_dir = Dir.pwd
     #Dir.chdir(Dir.pwd+"/"+"msh")
