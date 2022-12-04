@@ -24,8 +24,7 @@ class Msh < Formula
   end
   
   def changeDir(dir)
-    Dir.chdir(Dir.pwd+"/"+dir) do
-    end
+    #Dir.chdir(Dir.pwd+"/"+dir)
   end
 
   def install   
@@ -33,11 +32,13 @@ class Msh < Formula
     mkdir "msh"
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec rm -r '{}' \\;"
-    changeDir("msh")
+    #changeDir("msh")
+    Dir.chdir(Dir.pwd+"/"+"msh")
     mkdir "mshgit"
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
-    changeDir("..")
+    #changeDir("..")
+    Dir.chdir(Dir.pwd+"/"+"..")
     
     FileUtils.mv("develop", "msh/mshgit")
     FileUtils.mv("Makefile", "msh/mshgit")
@@ -61,17 +62,21 @@ class Msh < Formula
     # get lib
     #system "mkdir lib && cd lib"
     mkdir "lib"
-    changeDir("lib")
+    #changeDir("lib")
+    Dir.chdir(Dir.pwd+"/"+"lib")
     lsPrint()
     system "git clone https://github.com/Max2github/lib.git"
     #system "cd .."
-    changeDir("..")
+    #changeDir("..")
+    Dir.chdir(Dir.pwd+"/"+"../")
     
     # get packages
-    changeDir("msh")
+    #changeDir("msh")
+    Dir.chdir(Dir.pwd+"/"+"msh")
     system "git clone https://github.com/Max2github/msh-packages.git"
     
-    changeDir("mshgit")
+    #changeDir("mshgit")
+    Dir.chdir(Dir.pwd+"/"+"mshgit")
     
     dirPrint()
     
