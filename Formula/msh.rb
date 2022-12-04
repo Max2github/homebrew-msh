@@ -66,11 +66,12 @@ class Msh < Formula
     #system "mkdir lib && cd lib"
     mkdir "lib"
     #changeDir("lib")
-    Dir.chdir(Dir.pwd+"/"+"lib")
+    system "cd lib"
+    #Dir.chdir(Dir.pwd+"/"+"lib")
     lsPrint()
     system "git clone https://github.com/Max2github/lib.git"
     #system "cd .."
-    changeDir("..")
+    #changeDir("..")
     #Dir.chdir(Dir.pwd+"/"+"../")
     
     # get packages
