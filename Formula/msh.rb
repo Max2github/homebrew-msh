@@ -32,9 +32,12 @@ class Msh < Formula
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec cp -r '{}' mshgit \\;"
     #system "find . ! -regex '.*/mshgit' ! -regex '.' -exec rm -r '{}' \\;"
     changeDir("..")
+    lsPrint()
+    system "setopt extendedglob"
+    system "mv ^msh msh/mshgit"
     #system "shopt -s extglob"
     #system "mv !(msh) msh/mshgit"
-    system "/usr/local/opt/coreutils/libexec/gnubin/mv !(msh) msh/mshgit"
+    #system "/usr/local/opt/coreutils/libexec/gnubin/mv !(msh) msh/mshgit"
     #system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
     
     # get lib
