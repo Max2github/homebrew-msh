@@ -145,6 +145,7 @@ class Msh < Formula
     
     #Dir.chdir(msh_dir)
     #system "./mshgit/devel package msh-packages/std-essential"
+    lsPrint()
     system "make command action=package data=msh-packages/std-essential"
     #system "./devel package msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-extended"
