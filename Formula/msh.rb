@@ -17,7 +17,7 @@ class Msh < Formula
   def install
     mydir = Dir.getwd
     puts mydir
-    system "cd .."
+    system "cd ../../"
     
     # get lib
     system "mkdir lib && cd lib"
@@ -25,7 +25,6 @@ class Msh < Formula
     system "cd .."
     
     # get packages
-    system "mkdir msh && cd msh"
     system "git clone https://github.com/Max2github/msh-packages.git"
     
     system "cd #{mydir}"
