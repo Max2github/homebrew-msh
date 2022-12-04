@@ -139,8 +139,7 @@ class Msh < Formula
     
     # launch devel
     system "make dep=false host=#{host} target=#{target} develop"
-    lsStr = system "ls ../msh-packages"
-    puts lsStr
+    puts Dir.glob("..")
     system "make command action=package data=../msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-extended"
