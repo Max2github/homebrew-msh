@@ -20,7 +20,6 @@ class Msh < Formula
   
   def changeDir(dir)
     Dir.chdir(Dir.pwd+"/"+dir)
-    system "cd #{dir}"
   end
 
   def install   
