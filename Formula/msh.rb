@@ -32,6 +32,7 @@ class Msh < Formula
   def install   
     # move mshgit to msh/mshgit
     mkdir "msh/mshgit"
+    lsPrint()
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec rm -r '{}' \\;"
     #changeDir("msh")
