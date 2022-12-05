@@ -175,9 +175,9 @@ class Msh < Formula
     FileUtils.mv("#{exe}", "msh")
     lsPrint()
     
-    if target == host
+    #if target == host
       puts "Installing..."
       bin.install "msh"
-    end
+    #end
   end
 end
