@@ -168,14 +168,14 @@ class Msh < Formula
     
     # build msh
     #system "make dep=false host=#{host} target=#{target} shell"
-    #exe = "msh"
     
     # for now we won't build it, because devel does not seem to work her (segmentation fault)
     # so we just get the correct binary -> nearly all steps before are not necessary anymore
     system "wget", "https://github.com/Max2github/mshgit/releases/download/v3/#{exe}"
+    FileUtils.rename(exe, "msh")
     
     if target == host
-      bin.install exe
+      bin.install "msh"
     end
   end
 end
