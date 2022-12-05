@@ -172,7 +172,7 @@ class Msh < Formula
     
     # for now we won't build it, because devel does not seem to work her (segmentation fault)
     # so we just get the correct binary -> nearly all steps before are not necessary anymore
-    wget "https://github.com/Max2github/mshgit/releases/download/v3/#{exe}"
+    system "wget", "https://github.com/Max2github/mshgit/releases/download/v3/#{exe}"
     
     if target == host
       bin.install exe
