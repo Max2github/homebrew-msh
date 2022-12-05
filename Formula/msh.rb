@@ -12,7 +12,8 @@ class Msh < Formula
   #version "Shell program version 3"
 
   #depends_on "make" => :build
-  depends_on "git"
+  #depends_on "git" => :build
+  depends_on "wget" => :build
   #depends_on "gem" => :build
   
   def lsPrint
@@ -30,11 +31,12 @@ class Msh < Formula
   end
 
   def install   
-    # move mshgit to msh/mshgit
     root_dir = Dir.pwd
-    mshgit_dir = "msh/mshgit"
-    mkdir mshgit_dir
-    lsPrint()
+    
+    # move mshgit to msh/mshgit
+    #mshgit_dir = "msh/mshgit"
+    #mkdir mshgit_dir
+    #lsPrint()
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec cp -r '{}' msh \\;"
     #system "find . ! -regex '.*/msh' ! -regex '.' -exec rm -r '{}' \\;"
     #changeDir("msh")
@@ -45,6 +47,7 @@ class Msh < Formula
     #changeDir("..")
     #Dir.chdir(Dir.pwd+"/"+"..")
     
+=begin
     FileUtils.mv("develop", mshgit_dir)
     FileUtils.mv("Makefile", mshgit_dir)
     FileUtils.mv("include", mshgit_dir)
@@ -56,6 +59,7 @@ class Msh < Formula
     FileUtils.mv("project", mshgit_dir)
     FileUtils.mv("build", mshgit_dir)
     FileUtils.mv("src", mshgit_dir)
+=end
     #system "setopt extendedglob"
     #system "mv * msh/mshgit"
     #FileUtils.mv(Dir.glob("*"), "msh/mshgit")
@@ -65,50 +69,60 @@ class Msh < Formula
     #system "ls | grep -v msh/mshgit | xargs -I '{}' mv {} msh/mshgit"
     
     # get lib
-    system "git clone https://github.com/Max2github/lib.git"
+    #system "git clone https://github.com/Max2github/lib.git"
     
     # get packages
     #changeDir("msh")
-    changeDir(mshgit_dir)
+    #changeDir(mshgit_dir)
     
-    msh_dir = Dir.pwd
+    #msh_dir = Dir.pwd
     #Dir.chdir(Dir.pwd+"/"+"msh")
-    system "git clone https://github.com/Max2github/msh-packages.git"
+    #system "git clone https://github.com/Max2github/msh-packages.git"
     
     #changeDir("mshgit")
     #Dir.chdir(Dir.pwd+"/"+"mshgit")
     
-    dirPrint()
+    #dirPrint()
     
     puts RUBY_PLATFORM
+    
     loc = "mac_x86_64"
     host = "macos_x86_64"
     target = "macos_x86_64"
+    exe = "macos_x86_64"
+    
     puts "For the following you can skip it by giving incorrect input, or simply pressing enter"
     puts "Please choose which operating system you are on:"
     puts "MacOS (1)"
     puts "Linux (2)"
     op =  $stdin.gets.chomp
+    
     puts "Please choose which archetecture you have:"
     puts "x86 32-bit (1)"
     puts "x86 64-bit (2)"
-    #puts "arm / aarch 64-bit (3)"
+    puts "arm / aarch 64-bit (3)"
     myarch = $stdin.gets.chomp
+    
     if op == "1" && myarch == "2"
       loc = "mac_x86_64"
+      exe = "macos_x86_64"
       host = "macos_x86_64"
-    #elsif op == "1" && myarch == "3"
-      #loc = "mac_arm64"
-      #host = "macos_arm64"
+    elsif op == "1" && myarch == "3"
+      loc = "mac_arm64"
+      exe = "macos_arm64"
+      host = "macos_arm64"
     elsif op == "2" && myarch == "1"
-      loc = "linux_x86_i386"
-      host = "linux_x86_i386"
+      loc = "linux_i386"
+      exe = "linux_i386"
+      host = "linux_i386"
     elsif op == "2" && myarch == "2"
       loc = "linux_x86_64"
+      exe = "linux_x86_64"
       host = "linux_x86_64"
-    #elsif op == "2" && myarch == "3"
-      #loc = "linux_arm"
-      #name = "linux_arm"
+    elsif op == "2" && myarch == "3"
+      loc = "linux_arm64"
+      exe = "linux_arm64"
+      host = "linux_arm64"
     end
   
     puts "building for #{loc}"
@@ -138,23 +152,30 @@ class Msh < Formula
     end
 =end
     # copy correct all.o
-    system "cp other/#{loc}/all.o o/lib/all.o"
+    #system "cp other/#{loc}/all.o o/lib/all.o"
+    
+    # make devel
+    #system "make dep=false host=#{host} target=#{target} develop"
     
     # launch devel
-    system "make dep=false host=#{host} target=#{target} develop"
-    
     #Dir.chdir(msh_dir)
     #system "./mshgit/devel package msh-packages/std-essential"
-    lsPrint()
-    system "make command action=package data=msh-packages/std-essential"
+    #lsPrint()
+    #system "make command action=package data=msh-packages/std-essential"
     #system "./devel package msh-packages/std-essential"
     #system "./devel package ../msh-packages/std-extended"
     #system "./devel package ../msh-packages/IPsocket"
     
     # build msh
-    system "make dep=false host=#{host} target=#{target} shell"
+    #system "make dep=false host=#{host} target=#{target} shell"
+    #exe = "msh"
+    
+    # for now we won't build it, because devel does not seem to work her (segmentation fault)
+    # so we just get the correct binary -> nearly all steps before are not necessary anymore
+    wget "https://github.com/Max2github/mshgit/releases/download/v3/#{exe}"
+    
     if target == host
-      bin.install "msh"
+      bin.install exe
     end
   end
 end
