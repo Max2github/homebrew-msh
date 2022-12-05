@@ -5,7 +5,7 @@ require 'fileutils'
 class Msh < Formula
   desc "The msh Interpreter as shell program."
   homepage "https://github.com/Max2github/mshgit"
-  #url "https://github.com/Max2github/mshgit/archive/refs/tags/v3.tar.gz"
+  url "https://github.com/Max2github/mshgit/archive/refs/tags/v3.tar.gz"
   #sha256 "72ecee82dd0e0a1ed2e82127a8747ecc7e274c54340eb47b291d4beb27cbd915"
   license "MIT"
   version "3.0.0"
